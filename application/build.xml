@@ -1,13 +1,13 @@
 <project name="CoffeeApp" basedir=".." default="clean">
 
     <!-- project-specific variables -->
-    <property name="project.dir" value="application/WebContent" />
+    <property name="project.dir" value="work/WebContent" />
     <property name="project.dir.name" value="coffeeapp" />
     <property name="package.name" value="${project.dir.name}.war" />
     <property name="project.dir.web-inf" value="${project.dir}/WEB-INF" />
     <property name="project.dir.meta-inf" value="${project.dir}/META-INF" />
     <!-- <property name="war.dir" value="/nps/apps/war" /> -->
-    <property name="war.dir" value="war" />
+    <property name="war.dir" value="/war" />
 
 
         <!-- MAKE DEST -->
