@@ -10,6 +10,8 @@
 Lets start the day with a good coffee<br>
 Your Barista for the day is Abila The Great<br>
 How may I help you ?
+We have the following <br>
+Filter Kappi
 <hr>
 </body>
 </html>
