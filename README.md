@@ -39,7 +39,7 @@ To run Kohee application locally, follow these steps:
     docker run -d -p 8080:8080 koheeapp
     ```
 
-5. Access KoheeApp in your web browser at [http://localhost:8080](http://localhost:8080).
+5. Access KoheeApp in your web browser at [http://localhost:8080/coffeeapp/index.html](http://localhost:8080/coffeeapp/index.html).
 
 ## Docker Workflow
 
