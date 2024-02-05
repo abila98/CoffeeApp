@@ -16,13 +16,13 @@ To run Kohee application locally, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/abila98/CoffeeApp.git
+    git clone [https://github.com/abila98/Kohee-App.git]
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd KoheeApp
+    cd Kohee-App
     ```
 
 3. Build the Docker image:
