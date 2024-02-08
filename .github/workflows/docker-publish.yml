@@ -21,5 +21,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build --output type=image,push=true -t ghcr.io/${{ github.repository_owner }}/coffeeapp:latest .
-          docker push ghcr.io/${{ github.repository_owner }}/coffeeapp:latest
+          docker build --output type=image,push=true -t ghcr.io/${{ github.repository_owner }}/portfolioapp:latest .
+          docker push ghcr.io/${{ github.repository_owner }}/portfolioapp:latest
