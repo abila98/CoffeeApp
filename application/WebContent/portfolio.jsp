@@ -7,11 +7,11 @@
 <title>Hello Everyone</title>
 </head>
 <body>
-Lets start the day with a good coffee<br>
-Your Barista for the day is Abila The Great<br>
-How may I help you ?
-We have the following <br>
-Filter Kappi
+Heyyaa Folks<br>
+I am Abila , Abila The Great<br>
+This website has been made using ....
+The template for the website was piicked up from the internet.
+Do give it a try.
 <hr>
 </body>
 </html>

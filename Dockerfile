@@ -20,7 +20,7 @@ FROM tomcat:9.0.56-jdk11-corretto
 WORKDIR /usr/local/tomcat/webapps/
 
 # Copy the WAR file from the previous stage
-COPY --from=builder /war/coffeeapp.war . 
+COPY --from=builder /war/portfolio.war . 
 
 # Expose port 8080
 EXPOSE 8080

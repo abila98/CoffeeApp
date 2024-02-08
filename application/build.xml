@@ -1,8 +1,8 @@
-<project name="CoffeeApp" basedir=".." default="clean">
+<project name="PortfolioApp" basedir=".." default="clean">
 
     <!-- project-specific variables -->
     <property name="project.dir" value="work/WebContent" />
-    <property name="project.dir.name" value="coffeeapp" />
+    <property name="project.dir.name" value="portfolio" />
     <property name="package.name" value="${project.dir.name}.war" />
     <property name="project.dir.web-inf" value="${project.dir}/WEB-INF" />
     <property name="project.dir.meta-inf" value="${project.dir}/META-INF" />
