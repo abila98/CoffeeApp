@@ -72,7 +72,9 @@ The Portfolio Application utilizes GitHub Actions to automate the Docker build a
 
 
 ## Customization
-Users can make required changes to customize the website by modifying the HTML file located at PortfolioApp/application/WebContent/index.html. Additionally, CSS and JavaScript files can be modified to further customize the appearance and functionality of the website.
+Users can make required changes to customize the website by modifying the HTML file located at PortfolioApp/application/WebContent/index.html. Additionally, CSS and JavaScript files can be modified to further customize the appearance and functionality of the website. 
+Additionally the certificate mentioned in porfolio is securely stored in an S3 bucket. Proper ACLs (Access Control Lists) are configured to ensure appropriate access permissions. The URL to access the certificate is added to the index.html , allowing users to seamlessly view or download the certificate as needed.
+
 
 ## Deployment to AWS Auto Scaling Group (ASG)
 
