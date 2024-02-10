@@ -28,6 +28,6 @@ COPY --from=builder /war/portfolio.war .
 
 # Expose port 8080
 EXPOSE 8080
-
+EXPOSE 8443
 # Start Tomcat
 CMD ["catalina.sh", "run"]
