@@ -19,6 +19,10 @@ FROM tomcat:9.0.56-jdk11-corretto
 # Set the working directory
 WORKDIR /usr/local/tomcat/webapps/
 
+
+COPY cert/portfolio.crt /usr/local/tomcat/conf/portfolio.crt
+COPY cert/portfolio.key /usr/local/tomcat/conf/portfolio.key
+COPY server.xml /usr/local/tomcat/conf/ 
 # Copy the WAR file from the previous stage
 COPY --from=builder /war/portfolio.war . 
 
