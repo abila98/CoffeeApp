@@ -10,9 +10,17 @@ My Portfolio Application is a JavaServer Pages (JSP) application showcasing my r
 
 To run My Portfolio Application locally, follow these steps:
 
-### Prerequisites
+## Prerequisites
 
-- Docker installed on your system
+Before you begin, ensure you have the following installed:
+
+- Docker
+  - Installation instructions: [Docker Documentation](https://docs.docker.com/get-docker/)
+- Git
+  - Installation instructions: [Git Downloads](https://git-scm.com/downloads)
+- Github
+  - A GitHub Personal Access Token is required for accessing GitHub Secrets in the workflow. Create one with the appropriate permissions and add it to your GitHub repository's secrets.
+
 
 ### Installation
 
@@ -31,7 +39,7 @@ To run My Portfolio Application locally, follow these steps:
 3. Build the Docker image:
 
     ```bash
-    docker build -t PortfolioApp .
+    docker build -t portfolioapp .
     ```
 
 ### Usage
@@ -42,7 +50,7 @@ To run My Portfolio Application locally, follow these steps:
     docker run -d -p 8080:8080 portfolioapp
     ```
 
-5. Access My Portfolio Application in your web browser at http://localhost:8080/portfolio/index.html.
+5. Access the Portfolio Application in your web browser at http://localhost:8080/portfolio/index.html.
 
 ## Docker Workflow
 
@@ -56,10 +64,17 @@ The Docker image for My Portfolio Application is built using a multi-stage Docke
 
 ## Continuous Integration with GitHub Actions
 
-My Portfolio Application utilizes GitHub Actions to automate the Docker build and push process. Here's how it works:
+The Portfolio Application utilizes GitHub Actions to automate the Docker build and push process. Here's how it works:
 
 - The GitHub workflow is triggered on a push to the main branch.
 - Docker credentials are stored securely in GitHub Secrets and accessed during the Docker build and push process.
+- The docker image is stored in github packages.
+
+
+## Customization
+Users can make required changes to customize the website by modifying the HTML file located at PortfolioApp/application/WebContent/index.html. Additionally, CSS and JavaScript files can be modified to further customize the appearance and functionality of the website. 
+Additionally the certificate mentioned in porfolio is securely stored in an S3 bucket. Proper ACLs (Access Control Lists) are configured to ensure appropriate access permissions. The URL to access the certificate is added to the index.html , allowing users to seamlessly view or download the certificate as needed.
+
 
 ## Deployment to AWS Auto Scaling Group (ASG)
 
