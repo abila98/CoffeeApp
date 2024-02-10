@@ -23,9 +23,8 @@
         <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
             maxThreads="150" SSLEnabled="true">
             <SSLHostConfig>
-                <Certificate certificateFile="conf/certificate.crt"
-                    certificateKeyFile="conf/private.key"
-                    certificateChainFile="conf/certificate-chain.crt" />
+                <Certificate certificateFile="conf/portfolio.crt"
+                    certificateKeyFile="conf/portfolio.key"/>
             </SSLHostConfig>
         </Connector>
 
