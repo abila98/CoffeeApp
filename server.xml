@@ -1,35 +1,46 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Server port="8005" shutdown="SHUTDOWN">
-  <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
-  <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
-  <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
-  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
-  <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+    <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
+    <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
+    <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+    <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+    <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
 
-  <Service name="Catalina">
-    <Connector port="443" protocol="org.apache.coyote.http11.Http11NioProtocol"
-              maxThreads="150" SSLEnabled="true"
-              sslProtocol="TLSv1.2"
-              SSLHostConfig="localhost">
-      <SSLHostConfig>
-        <Certificate certificateFile="/usr/local/tomcat/conf/portfolio.crt"
-                    certificateKeyFile="/usr/local/tomcat/conf/portfolio.key"
-                    certificateKeystoreType="RSA" />
-      </SSLHostConfig>
-      <SSLHostConfig>
-        <Ciphers>
-          ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384,ECDHE-ECDSA-AES128-GCM-SHA256,
-          ECDHE-RSA-AES128-GCM-SHA256,ECDHE-ECDSA-CHACHA20-POLY1305,ECDHE-RSA-CHACHA20-POLY1305,
-          TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,
-          TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-        </Ciphers>
-      </SSLHostConfig>
-    </Connector>
+    <GlobalNamingResources>
+        <Resource name="UserDatabase" auth="Container"
+            type="org.apache.catalina.UserDatabase"
+            description="User database that can be updated and saved"
+            factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+            pathname="conf/tomcat-users.xml" />
+    </GlobalNamingResources>
 
-    <Engine name="Catalina" defaultHost="localhost">
-      <Host name="localhost" appBase="webapps"
-            unpackWARs="true" autoDeploy="true">
-      </Host>
-    </Engine>
-  </Service>
+    <Service name="Catalina">
+        <Connector port="8080" protocol="HTTP/1.1"
+            connectionTimeout="20000"
+            redirectPort="8443" />
+
+        <!-- HTTPS Connector -->
+        <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+            maxThreads="150" SSLEnabled="true">
+            <SSLHostConfig>
+                <Certificate certificateFile="conf/certificate.crt"
+                    certificateKeyFile="conf/private.key"
+                    certificateChainFile="conf/certificate-chain.crt" />
+            </SSLHostConfig>
+        </Connector>
+
+        <Engine name="Catalina" defaultHost="localhost">
+            <Realm className="org.apache.catalina.realm.LockOutRealm">
+                <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+                    resourceName="UserDatabase"/>
+            </Realm>
+
+            <Host name="localhost"  appBase="webapps"
+                unpackWARs="true" autoDeploy="true">
+                <Valve className="org.apache.catalina.valves.AccessLogValve"
+                    directory="logs"  prefix="localhost_access_log" suffix=".txt"
+                    pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+            </Host>
+        </Engine>
+    </Service>
 </Server>
