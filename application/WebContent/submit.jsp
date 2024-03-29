@@ -23,8 +23,8 @@ String email = request.getParameter("email");
 String subject = request.getParameter("subject");
 String message = request.getParameter("message");
 
-String url = "jdbc:mysql://mysql:3306/contact";"
-String user = admin
+String url = "jdbc:mysql://mysql:3306/contact";
+String user = "root";
 String password = System.getenv("dbpassword");
 
 String smtpHost = System.getenv("smtpHost");
