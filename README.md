@@ -82,6 +82,8 @@ To deploy My Portfolio Application to an AWS Auto Scaling Group (ASG), follow th
 
 ## Contributing
 
+
+
 Contributions are welcome! Please feel free to submit pull requests or open issues for any bugs or feature requests.
 
 ## License
